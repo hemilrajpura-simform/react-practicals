@@ -4,7 +4,7 @@ import TaskAltTwoToneIcon from '@mui/icons-material/TaskAltTwoTone';
 const todosList = (props) => {
 
     var curDateObj = new Date();
-    var curDate = curDateObj.getMinutes();
+    var curDate = curDateObj.getDate();
 
     return (
         <div className='todolist-main'>
@@ -20,7 +20,7 @@ const todosList = (props) => {
                         var completedStyle = todo.isTaskCompleted ? "completedstyle" : ''; 
                         var completedStyleCross = todo.isTaskCompleted ? 'todo-cross-green' : 'todo-cross';
                         return (
-                            <div className='todolist-item' key={props.randKey}>
+                            <div className='todolist-item' key={todo.randKey}>
                                 {
                                     <h3 className={completedStyle} >
                                         {todo.title}

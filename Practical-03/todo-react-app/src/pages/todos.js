@@ -20,7 +20,7 @@ const Todos = () => {
 
         const randKey = Math.random();
         var curDateObj = new Date();
-        var curDate = curDateObj.getMinutes();
+        var curDate = curDateObj.getDate();
 
         const myTodo = { title: title, randKey: randKey, curDate: curDate, isTaskCompleted:false };
         console.log("CUR HOURS", curDate);
