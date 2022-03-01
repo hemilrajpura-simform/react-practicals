@@ -37,9 +37,9 @@
   opacity: 0.8;
 }
 .userShow-main h5 {
-    opacity: 0.8;
-    text-align: left;
-    margin-bottom: 8px;
+  opacity: 0.8;
+  text-align: left;
+  margin-bottom: 8px;
 }
 .plan-uses-line {
   height: 4px;
@@ -48,11 +48,11 @@
   background: #feb24b;
 }
 .plan-uses-line-front {
-    height: 4px;
-    width: 100%;
-    border-radius: 5px;
-    /* background: ; */
-  }
+  height: 4px;
+  width: 100%;
+  border-radius: 5px;
+  /* background: ; */
+}
 .statistic-main p {
   font-size: 0.7rem;
 }
@@ -62,3 +62,19 @@
   width: 1px;
   border-radius: 10px;
 }
+.userShow-main {
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 0.8s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    /* width: 0%; */
+  }
+  to {
+    opacity: 1;
+    /* width: 100%;  */
+  }
+}
+

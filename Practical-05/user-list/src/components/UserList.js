@@ -45,7 +45,7 @@ const UserList = (props) => {
             {showPopup && (
                 <div className='userShow-main'>
 
-                    <Popup selectedUser={selectedUser} />
+                    <Popup className='popup-main' selectedUser={selectedUser} />
 
                 </div>
 
