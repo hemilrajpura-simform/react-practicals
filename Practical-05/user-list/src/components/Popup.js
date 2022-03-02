@@ -1,13 +1,14 @@
 
+
 import React from 'react';
 import './UserList';
 
 const Popup = (props) => {
-    console.log( 'inside popup Component', props.selectedUser.username ); 
-   //const planUsesStyle = 'width:'+props.selectedUser.planUses;
+    console.log('inside popup Component', props.selectedUser.username);
+    //const planUsesStyle = 'width:'+props.selectedUser.planUses;
     const planUsesStyle = {
-        width:props.selectedUser.planUses+'%'
-        };
+        width: props.selectedUser.planUses + '%'
+    };
     return (
         <div>
 
@@ -17,7 +18,7 @@ const Popup = (props) => {
             <h3>Your Plan: Standard</h3>
             <button>Active User</button>
             <h5>Plan Uses</h5>
-            <div className='plan-uses-line' style= { planUsesStyle}> </div>
+            <div className='plan-uses-line' style={planUsesStyle}> </div>
             {/* <div className='plan-uses-line-front'> </div> */}
             <div className='statistic-main'>
                 <div className='reviewed'>
