@@ -8,8 +8,9 @@ import Popup from './Popup';
 const UserList = (props) => {
     const [showPopup, setShowPopup] = useState(false);
     const [selectedUser, setSelectedUser] = useState();
+
     const closePopup = () => {
-          setShowPopup(false);
+        setShowPopup(false);
     };
     const showPopupHandler = (item) => {
         setShowPopup(true);
@@ -33,6 +34,8 @@ const UserList = (props) => {
                                 status={item.status}
                                 access={item.access}
                                 userId={item.userId}
+                                MonthlyClicks={item.MonthlyClicks}
+                                clicksReviewed={item.clicksReviewed}
                                 id={item.userId}
                                 closePopup={closePopup}
                             />
@@ -45,7 +48,10 @@ const UserList = (props) => {
             {showPopup && (
                 <div className='userShow-main'>
 
-                    <Popup className='popup-main' selectedUser={selectedUser} />
+
+                    <Popup
+                        className='popup-main'
+                        selectedUser={selectedUser} />
 
                 </div>
 
