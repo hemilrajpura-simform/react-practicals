@@ -4,7 +4,7 @@ import './UserList';
 
 
 const Popup = (props) => {
-  
+
 
     var MonthlyClicks = Math.floor(Math.random() * 10000);
     var clicksReviewed = Math.floor(Math.random() * 10000);
@@ -23,7 +23,7 @@ const Popup = (props) => {
             <button>Active User</button>
             <h5>Plan Uses</h5>
             <div className='plan-uses-line' style={planUsesStyle}> </div>
-            {/* <div className='plan-uses-line-front'> </div> */}
+      
             <div className='statistic-main'>
                 <div className='reviewed'>
                     <h2>{clicksReviewed}</h2>

@@ -6,18 +6,18 @@ import PageNotFound from './PageNotFound';
 import './UserList.css';
 import Popup from './Popup';
 import Loading from './Loading';
+import { Moon, Sun } from 'react-feather';
+
+
 const UserList = (props) => {
+    console.log();
     const [showPopup, setShowPopup] = useState(false);
     const [selectedUser, setSelectedUser] = useState();
     const [pageFound, setPageFound] = useState(false);
     const [pageLoading, setPageLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    
+  
     const paginationHandler = (number) => {
-
-     
-
-        // console.log(currentPage);
         if (number === "plus") {
             
             setCurrentPage(() => { return currentPage + 1 });
@@ -74,16 +74,25 @@ const UserList = (props) => {
     const paginationStyle = {
         outline: "2px solid black",
     };
+    
+   
     return (
+    
         pageLoading ? <Loading /> :
             !pageFound ? <PageNotFound paginationHandler={paginationHandler} /> : (
-
-                <div className='main-container' onMouseLeave={closePopup}>
-                    <div className='user-list-main'>
+                <div >
+                <div className='main-container' style={ props.darkMode ? props.darkModeStyle:null } onMouseLeave={closePopup}>
+                    <div className='user-list-main' style={ props.darkMode ? props.darkModeStyle:null }>
+                       <div className='darkMode-main'>
+                        <button onClick={props.darkModeHandler} id="darkMode-btn"> 
+                        { props.darkMode ? <Sun /> : <Moon /> }
+                        
+                        </button>
+                        </div> 
                         <Header />
                         {
                             users.map(item => (
-                                <div key={item.id} >
+                                <div key={item.id} style={ props.darkMode ? props.darkModeStyle:null } >
                                     <UserItem
                                         showPopupHandler={showPopupHandler}
                                         username={item.first_name + " " + item.last_name}
@@ -127,7 +136,7 @@ const UserList = (props) => {
 
                     )}
                 </div>
-
+                </div>
             )
     );
 };
