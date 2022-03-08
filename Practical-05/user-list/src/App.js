@@ -2,7 +2,6 @@ import './App.css';
 import UserList from './components/UserList';
 import {  useState } from 'react';
 
-
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 

@@ -10,7 +10,6 @@ import { Moon, Sun } from 'react-feather';
 
 
 const UserList = (props) => {
-    console.log();
     const [showPopup, setShowPopup] = useState(false);
     const [selectedUser, setSelectedUser] = useState();
     const [pageFound, setPageFound] = useState(true);
@@ -19,11 +18,11 @@ const UserList = (props) => {
 
     const paginationHandler = (number) => {
         if (number === "plus") {
-            setCurrentPage(() => { return currentPage + 1 });
-            return;
-        }
-        else if (number === "minus") {
-            setCurrentPage(() => { return currentPage - 1 })
+            if (currentPage < 2)
+                setCurrentPage(() => { return currentPage + 1 });
+            else if (currentPage === 2)
+                setCurrentPage(1);
+
             return;
         }
         else if (number === "reload") {
@@ -32,6 +31,7 @@ const UserList = (props) => {
         }
         setCurrentPage(number);
     };
+
 
     const [users, setUsers] = useState([]);
 
@@ -108,8 +108,7 @@ const UserList = (props) => {
 
 
                             <div className='pagination'>
-                                <button
-                                    onClick={() => paginationHandler("minus")}> {"<"} </button>
+
                                 <button
                                     style={currentPage === 1 ? paginationStyle : null}
                                     onClick={() => paginationHandler(1)}>1</button>
@@ -136,4 +135,4 @@ const UserList = (props) => {
     );
 };
 
-export default UserList;
+export default React.memo(UserList);

@@ -1,10 +1,8 @@
 import React from 'react';
 import './UserItem.css';
 import { Trash, Lock, ChevronDown } from 'react-feather';
-import LazyLoad from "react-lazyload";
 
 const UserItem = (props) => {
-
     return (
         <div onMouseEnter={() => {
             props.showPopupHandler(props)
@@ -14,11 +12,10 @@ const UserItem = (props) => {
             <ul>
                 <li className='image-username'>
                     <div>
-                    {/* <LazyLoad once> */}
                         <img
                             src={props.image}
                             alt={props.username} />
-                            {/* </LazyLoad> */}
+                      
                              </div>
                     <div>
                         <p className='user-name'>{props.username}</p>
@@ -43,4 +40,4 @@ const UserItem = (props) => {
     );
 };
 
-export default (UserItem);
+export default React.memo(UserItem);
