@@ -80,7 +80,14 @@ button {
 
 }
 #notFound{ align-items: center; display: flex; padding: 10px; }
-
+.darkMode-main {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+#darkMode-btn{
+  background-color: #202a2a;
+}
 .RefreshCw {
   height: 20px;
   margin: 0 2px;
