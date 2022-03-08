@@ -1,6 +1,8 @@
 import React from 'react';
 import './UserItem.css';
 import { Trash, Lock, ChevronDown } from 'react-feather';
+import LazyLoad from "react-lazyload";
+
 const UserItem = (props) => {
 
     return (
@@ -12,9 +14,12 @@ const UserItem = (props) => {
             <ul>
                 <li className='image-username'>
                     <div>
+                    {/* <LazyLoad once> */}
                         <img
                             src={props.image}
-                            alt={props.username} /> </div>
+                            alt={props.username} />
+                            {/* </LazyLoad> */}
+                             </div>
                     <div>
                         <p className='user-name'>{props.username}</p>
                         <p className='email'>{props.email}</p>
@@ -38,4 +43,4 @@ const UserItem = (props) => {
     );
 };
 
-export default UserItem;
+export default (UserItem);

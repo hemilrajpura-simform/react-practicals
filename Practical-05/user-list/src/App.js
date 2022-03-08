@@ -4,7 +4,6 @@ import {  useState } from 'react';
 
 
 function App() {
-
   const [darkMode, setDarkMode] = useState(false);
 
   const darkModeHandler = () => {
@@ -17,14 +16,14 @@ function App() {
     color:"white"
 };
 
-const darkModeStyleBody = {
-  backgroundColor: "#121e1e",
+const darkModeStylePopUp = {
+  color:"black"
 };
 
 
   return (
     <div className="App" style={ darkMode ? darkModeStyle:null }>
-      <UserList darkMode={darkMode} darkModeStyle={darkModeStyle} darkModeHandler={darkModeHandler} />
+      <UserList darkMode={darkMode} darkModeStylePopUp={darkModeStylePopUp} darkModeStyle={darkModeStyle} darkModeHandler={darkModeHandler} />
     </div>
   );
 }
