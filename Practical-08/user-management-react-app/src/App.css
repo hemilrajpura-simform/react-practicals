@@ -1,0 +1,70 @@
+#header {
+  background: #a6947d;
+  text-align: center;
+}
+#header h1 {
+  color: #fff;
+  margin: 0;
+  padding: 14px 0;
+}
+.container {
+  display: flex;
+  width: 80vh;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.form-main.form-main {
+  width: 50vh;
+}
+.form-main input {
+  background-color: #faebd8;
+  border: 1px solid #927f6742;
+  border-radius: 2px;
+  padding: 3px 33px 3px 7px;
+  font-size: 15px;
+}
+.form-main #photo-btn {
+  background-color: transparent;
+  border: none;
+}
+.form-main ul {
+  list-style: none;
+}
+.form-main li {
+  margin: 15px 0;
+  color: #665e54;
+}
+
+.form-main p {
+  margin: 0;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.form-buttons {
+  width: 46%;
+  justify-content: space-between;
+  display: flex;
+}
+.form-buttons button {
+  padding: 7px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-weight: 500;
+}
+.form-buttons #submit {
+  background-color: #da3348;
+}
+.form-buttons #reset {
+  background-color: #0c7af6;
+}
+.error-message {
+  font-size: 0.8rem;
+  color: rgb(138, 4, 4);
+}
+#insertedPhoto{
+  width: 50px;
+  height: 100%;
+}
