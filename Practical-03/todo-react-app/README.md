@@ -1,7 +1,6 @@
 # Practical 3 and 4 - To-do list application in React using localstorage
 
 
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
