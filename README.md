@@ -24,12 +24,18 @@ React Practicals - Simform Solutions
 # Environment Files
 
 .env
+    
     REACT_APP_API_ENDPOINT="https://reqres.in/api/users?page="
 
 .env.development
+
     REACT_APP_API_ENDPOINT="https://reqres.in/api/users?page="
+    
 .env.production
+
      REACT_APP_API_ENDPOINT="https://reqres.in/api/users?page="
      
+     
 .env.staging
+
      REACT_APP_API_ENDPOINT="https://reqres.in/api/users?page="
