@@ -21,7 +21,7 @@ React Practicals - Simform Solutions
 - create another file in src called App.js and App.css
 - now we can start our server by using npm start
 
-#Environment Files
+# Environment Files
 
 .env
     REACT_APP_API_ENDPOINT="https://reqres.in/api/users?page="
