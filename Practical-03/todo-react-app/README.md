@@ -1,4 +1,4 @@
-# Practical 3 and 4 - To-do list application in React
+# Practical 3 and 4 - To-do list application in React using localstorage
 
 
 # Getting Started with Create React App
