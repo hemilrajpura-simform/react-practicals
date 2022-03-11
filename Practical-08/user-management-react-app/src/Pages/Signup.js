@@ -1,15 +1,27 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react';
 // @ts-ignore
 import practicalImage from '/home/hemilrajpura/React Training - Dec 2021/react-practicals/Practical-08/user-management-react-app/src/Pages/practical-8.png';
-import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+
 
 const Signup = () => {
+
+
+    const dispatch = useDispatch();
     const [photoPath, setPhotoPath] = useState(null);
     const photoRef = useRef();
+    const nav = useNavigate();
+
+
     return (
+
         <div className='container'>
             <div id='signup'>
                 <h1>Signup</h1>
+
                 <Formik
                     initialValues={
                         {
@@ -43,7 +55,6 @@ const Signup = () => {
                         if (!values.number) {
                             errors.number = 'Required';
                         } else if (values.number.toString().length !== 10) {
-                            console.log(values.number, values.number.toString().length);
                             errors.number = 'Enter a valid Phonenumber';
                         }
 
@@ -75,15 +86,28 @@ const Signup = () => {
                     }}
 
                     onSubmit={(values, { setSubmitting }) => {
-                        setTimeout(() => {
-                            console.log(photoPath);
-                            alert(JSON.stringify(values, null, 2));
-                            setSubmitting(false);
-                        }, 400);
-                    }}
+
+                        console.log(photoPath);
+                        setSubmitting(false);
+                        dispatch({
+                            type: 'login',
+                            username: values.username,
+                            password: values.password,
+                            email: values.email,
+                            img: URL.createObjectURL((values.photo)),
+                            number:values.number
+                        });
+
+                        nav("/home");
+                    }
+
+                    }
+
                 >
+
                     {({ isSubmitting, setFieldValue }) => (
                         <Form>
+
                             <div className='form-main'>
                                 <ul>
                                     <li>
@@ -147,6 +171,7 @@ const Signup = () => {
                             </div>
                         </Form>
                     )}
+
                 </Formik>
 
             </div>

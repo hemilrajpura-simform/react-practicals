@@ -68,3 +68,32 @@
   width: 50px;
   height: 100%;
 }
+.user-details {
+  width: 50vh;
+  margin: 0 auto;
+  padding: 20px;
+  background: #a6947d;
+  border-radius: 5px;
+  align-items: center;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+}
+.user-details img {
+  width: 100px;
+  object-fit: cover;
+  height: 100px;
+  border-radius: 51%;
+}
+.user-details h3{ margin: 5px; }
+.home-page-main p{text-align: center;}
+.user-details button{
+  border: none;
+  background-color: #000000;
+  padding: 10px 12px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold; 
+  margin-top: 50px;
+}
