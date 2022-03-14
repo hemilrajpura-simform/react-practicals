@@ -1,37 +1,33 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, Navigate } from 'react-router-dom';
 
 const Home = () => {
 
-  const username = useSelector((state) => state.username);
-  const email = useSelector((state) => state.email);
-  const photoLink = useSelector((state) => state.img);
-  const phone = useSelector((state) => state.number);
-  const isLogin = useSelector((state) => state.isLogin);
-
   const dispatch = useDispatch();
-  const navi = useNavigate();
   const logoutHandler = () => {
     dispatch({ type: 'logout' });
     console.log("logout handler called");
-    navi('/');
+
   };
-
-
+  const data = JSON.parse(localStorage.getItem("login"));
   return (
     <>
-      { !isLogin && <Navigate to='/' />  }
+      {data === null ?  <Navigate to='/' /> : null }
 
-      <div className='home-page-main'>Home</div>
-      <p>Congratulations, You are Registered</p>
-      <div className='user-details'>
-        <img src={photoLink} alt='' />
-        <h3>{username}</h3>
-        <h3>{phone}</h3>
-        <h3>{email}</h3>
-        <button onClick={logoutHandler} >Logout</button>
-      </div>
+
+     { data !== null && <div className='home-page-main'>
+        <p>Hello {data.username}, You are Registered With Email-id {data.email} <br></br>and phone number {data.number} </p>
+        <div className='user-details'>
+          <img src={data.img} alt='' />
+          <h3>{data.username}</h3>
+          <h3>{data.number}</h3>
+          <h3>{data.email}</h3>
+          <Link to='/' > <button onClick={logoutHandler} >Logout</button> </Link>
+        </div>
+      </div> }
+
+
     </>
   )
 }

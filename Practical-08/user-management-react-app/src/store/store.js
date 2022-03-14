@@ -1,14 +1,5 @@
 import { createStore } from 'redux';
 
-// const initialValues = {
-//     email: '',
-//     username: '',
-//     number: '',
-//     password: '',
-//     cpassword: '',
-//     photo: null
-// };
-
 const UserManagementReducer = (state = {
     username: '',
     password: '',
@@ -19,8 +10,7 @@ const UserManagementReducer = (state = {
 }, action) => {
 
     if (action.type === "login") {
-        console.log('login from store');
-
+        localStorage.setItem("login", JSON.stringify(action));
         return {
             username: action.username,
             password: action.password,
@@ -31,7 +21,7 @@ const UserManagementReducer = (state = {
         };
     }
     if (action.type === "logout") {
-        console.log('logout from store');
+        localStorage.clear();
         return {
             isLogin: false
         };

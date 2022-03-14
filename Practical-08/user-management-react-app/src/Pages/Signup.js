@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 // @ts-ignore
 import practicalImage from '/home/hemilrajpura/React Training - Dec 2021/react-practicals/Practical-08/user-management-react-app/src/Pages/practical-8.png';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 
@@ -107,7 +107,7 @@ const Signup = () => {
 
                     {({ isSubmitting, setFieldValue }) => (
                         <Form>
-
+                            { JSON.parse(localStorage.getItem("login")) ? <Navigate to='/home'/> :null }
                             <div className='form-main'>
                                 <ul>
                                     <li>
