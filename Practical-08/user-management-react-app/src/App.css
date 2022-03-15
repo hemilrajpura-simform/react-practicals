@@ -88,11 +88,14 @@
 .user-details h3 {
   margin: 5px;
 }
+span.home-page-imp-info {
+  color: #090c0a;
+}
 .home-page-main p {
   text-align: center;
   text-align: center;
   background: #a6947d;
-  color: #d8ffd8;
+  color: #2e2e2e;
 }
 .user-details button {
   border: none;

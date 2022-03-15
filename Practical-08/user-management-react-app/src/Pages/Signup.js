@@ -4,12 +4,11 @@ import practicalImage from '/home/hemilrajpura/React Training - Dec 2021/react-p
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
+import bcrypt from 'bcryptjs';
 
 
 const Signup = () => {
-
-
+    const salt = bcrypt.genSaltSync(10);
     const dispatch = useDispatch();
     const [photoPath, setPhotoPath] = useState(null);
     const photoRef = useRef();
@@ -89,18 +88,17 @@ const Signup = () => {
 
                         console.log(photoPath);
                         setSubmitting(false);
+
                         dispatch({
                             type: 'login',
                             username: values.username,
-                            password: values.password,
                             email: values.email,
                             img: URL.createObjectURL((values.photo)),
-                            number:values.number
+                            number:values.number,
+                            password:bcrypt.hashSync(values.password, '$2a$10$CwTycUXWue0Thq9StjUM0u') 
                         });
-
                         nav("/home");
                     }
-
                     }
 
                 >
@@ -114,12 +112,12 @@ const Signup = () => {
                                         <input type="file"
                                             name="photo"
                                             id="photo"
-                                            accept="jpg, .png"
+                                            accept=" .jpg, .png, "
                                             ref={photoRef}
                                             hidden
                                             onChange={(event) => {
                                                 setFieldValue("photo", event.currentTarget.files[0]);
-                                                setPhotoPath(URL.createObjectURL(event.currentTarget.files[0]));
+                                                    setPhotoPath(URL.createObjectURL(event.currentTarget.files[0]));
                                             }}
                                         />
 

@@ -3,7 +3,7 @@ import { createStore } from 'redux';
 const UserManagementReducer = (state = {
     username: '',
     password: '',
-    number:null,
+    number: null,
     img: '',
     email: '',
     isLogin: false
@@ -16,7 +16,7 @@ const UserManagementReducer = (state = {
             password: action.password,
             img: action.img,
             email: action.email,
-            number:action.number,
+            number: action.number,
             isLogin: true
         };
     }
@@ -30,9 +30,7 @@ const UserManagementReducer = (state = {
 };
 
 const store = createStore(
-    UserManagementReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-
-
+    UserManagementReducer
 );
 
 export default store;
