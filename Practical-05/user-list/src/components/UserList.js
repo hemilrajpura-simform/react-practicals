@@ -10,19 +10,21 @@ import { Moon, Sun } from 'react-feather';
 
 
 const UserList = (props) => {
+    console.log();
     const [showPopup, setShowPopup] = useState(false);
     const [selectedUser, setSelectedUser] = useState();
-    const [pageFound, setPageFound] = useState(true);
+    const [pageFound, setPageFound] = useState(false);
     const [pageLoading, setPageLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-
+  
     const paginationHandler = (number) => {
         if (number === "plus") {
-            if (currentPage < 2)
-                setCurrentPage(() => { return currentPage + 1 });
-            else if (currentPage === 2)
-                setCurrentPage(1);
-
+            
+            setCurrentPage(() => { return currentPage + 1 });
+            return;
+        }
+        else if (number === "minus") {
+            setCurrentPage(() => { return currentPage - 1 })
             return;
         }
         else if (number === "reload") {
@@ -32,7 +34,6 @@ const UserList = (props) => {
         setCurrentPage(number);
     };
 
-
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -40,7 +41,7 @@ const UserList = (props) => {
 
         const f = async () => {
             setPageLoading(true);
-            const res = await fetch(process.env.REACT_APP_API_ENDPOINT + currentPage.toString());
+            const res = await fetch("https://reqres.in/api/users?page=" + currentPage.toString());
             const json = await res.json();
             setUsers(json.data);
             setPageLoading(false);
@@ -53,6 +54,7 @@ const UserList = (props) => {
             else {
                 setPageFound(false);
             }
+
         };
         f();
         pageFoundHandler();
@@ -72,67 +74,71 @@ const UserList = (props) => {
     const paginationStyle = {
         outline: "2px solid black",
     };
-
-
+    
+   
     return (
-
+    
         pageLoading ? <Loading /> :
             !pageFound ? <PageNotFound paginationHandler={paginationHandler} /> : (
                 <div >
-                    <div className='main-container' style={props.darkMode ? props.darkModeStyle : null} onMouseLeave={closePopup}>
-                        <div className='user-list-main' style={props.darkMode ? props.darkModeStyle : null}>
-                            <div className='darkMode-main'>
-                                <button onClick={props.darkModeHandler} id="darkMode-btn">
-                                    {props.darkMode ? <Sun /> : <Moon />}
+                <div className='main-container' style={ props.darkMode ? props.darkModeStyle:null } onMouseLeave={closePopup}>
+                    <div className='user-list-main' style={ props.darkMode ? props.darkModeStyle:null }>
+                       <div className='darkMode-main'>
+                        <button onClick={props.darkModeHandler} id="darkMode-btn"> 
+                        { props.darkMode ? <Sun /> : <Moon /> }
+                        
+                        </button>
+                        </div> 
+                        <Header />
+                        {
+                            users.map(item => (
+                                <div key={item.id} style={ props.darkMode ? props.darkModeStyle:null } >
+                                    <UserItem
+                                        showPopupHandler={showPopupHandler}
+                                        username={item.first_name + " " + item.last_name}
+                                        image={item.avatar}
+                                        email={item.email}
+                                        status={item.status}
+                                        access={item.access = "Read"}
+                                        userId={item.id}
+                                        id={item.id}
+                                        closePopup={closePopup}
+                                    />
+                                </div>
+                            ))
+                        }
 
-                                </button>
-                            </div>
-                            <Header />
-                            {
-                                users.map(item => (
-                                    <div key={item.id} style={props.darkMode ? props.darkModeStyle : null} >
-                                        <UserItem
-                                            showPopupHandler={showPopupHandler}
-                                            username={item.first_name + " " + item.last_name}
-                                            image={item.avatar}
-                                            email={item.email}
-                                            status={item.status}
-                                            access={item.access = "Read"}
-                                            userId={item.id}
-                                            id={item.id}
-                                            closePopup={closePopup}
-                                        />
-                                    </div>
-                                ))
-                            }
+
+                        <div className='pagination'>
+                            <button
+                                onClick={() => paginationHandler("minus")}> {"<"} </button>
+                            <button
+                                style={currentPage === 1 ? paginationStyle : null}
+                                onClick={() => paginationHandler(1)}>1</button>
+
+                            <button
+                                style={currentPage === 2 ? paginationStyle : null}
+                                onClick={() => paginationHandler(2)}>2</button>
+                            <button
+                                onClick={() => paginationHandler("plus")} > {">"} </button>
+                        </div>
+                    </div>
+
+                    {showPopup && (
+                        <div className='userShow-main'>
 
 
-                            <div className='pagination'>
+                            <Popup
+                                className='popup-main'
+                                selectedUser={selectedUser} />
 
-                                <button
-                                    style={currentPage === 1 ? paginationStyle : null}
-                                    onClick={() => paginationHandler(1)}>1</button>
-
-                                <button
-                                    style={currentPage === 2 ? paginationStyle : null}
-                                    onClick={() => paginationHandler(2)}>2</button>
-                                <button
-                                    onClick={() => paginationHandler("plus")} > {">"} </button>
-                            </div>
                         </div>
 
-                        {showPopup && (
-                            <div className='userShow-main' style={props.darkModeStylePopUp}>
-                                <Popup
-                                    className='popup-main'
-                                    selectedUser={selectedUser} />
-                            </div>
-
-                        )}
-                    </div>
+                    )}
+                </div>
                 </div>
             )
     );
 };
 
-export default React.memo(UserList);
+export default UserList;
