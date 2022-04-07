@@ -32,9 +32,8 @@ p {
   right: -21%;
   border-radius: 20px;
   box-shadow: 0 0 10px 0px black;
-  top: -36px;
+  top: 50px;
 }
-.main-container{ display: flex; }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -54,6 +53,26 @@ p {
 
 .App-link {
   color: #61dafb;
+}
+.PageNotFound {
+  height: 65vh;
+  color: #ff5e00;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+.PageNotFound img {
+  height: 268px;
+  border-radius: 33px;
+}
+.PageNotFound h1 {
+  margin: 0 auto;
+}
+
+#Loading {
+  height: 20vh;
 }
 
 @keyframes App-logo-spin {
