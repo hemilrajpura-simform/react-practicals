@@ -1,8 +1,8 @@
 import React from 'react';
 import './UserItem.css';
 import { Trash, Lock, ChevronDown } from 'react-feather';
-const UserItem = (props) => {
 
+const UserItem = (props) => {
     return (
         <div onMouseEnter={() => {
             props.showPopupHandler(props)
@@ -14,7 +14,9 @@ const UserItem = (props) => {
                     <div>
                         <img
                             src={props.image}
-                            alt={props.username} /> </div>
+                            alt={props.username} />
+                      
+                             </div>
                     <div>
                         <p className='user-name'>{props.username}</p>
                         <p className='email'>{props.email}</p>
@@ -38,4 +40,4 @@ const UserItem = (props) => {
     );
 };
 
-export default UserItem;
+export default React.memo(UserItem);
