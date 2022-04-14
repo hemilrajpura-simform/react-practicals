@@ -34,7 +34,11 @@ p {
   box-shadow: 0 0 10px 0px black;
   top: 50px;
 }
-
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
 
 .App-header {
   background-color: #282c34;
