@@ -1,0 +1,109 @@
+#header {
+  background: #a6947d;
+  text-align: center;
+}
+#header h1 {
+  color: #fff;
+  margin: 0;
+  padding: 14px 0;
+}
+.container {
+  display: flex;
+  width: 80vh;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.form-main.form-main {
+  width: 50vh;
+}
+.form-main input {
+  background-color: #faebd8;
+  border: 1px solid #927f6742;
+  border-radius: 2px;
+  padding: 3px 33px 3px 7px;
+  font-size: 15px;
+}
+.form-main #photo-btn {
+  background-color: transparent;
+  border: none;
+}
+.form-main ul {
+  list-style: none;
+}
+.form-main li {
+  margin: 15px 0;
+  color: #665e54;
+}
+
+.form-main p {
+  margin: 0;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.form-buttons {
+  width: 46%;
+  justify-content: space-between;
+  display: flex;
+}
+.form-buttons button {
+  padding: 7px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-weight: 500;
+}
+.form-buttons #submit {
+  background-color: #da3348;
+}
+.form-buttons #reset {
+  background-color: #0c7af6;
+}
+.error-message {
+  font-size: 0.8rem;
+  color: rgb(138, 4, 4);
+}
+#insertedPhoto {
+  width: 50px;
+  height: 100%;
+}
+.user-details {
+  width: 50vh;
+  margin: 0 auto;
+  padding: 20px;
+  background: #a6947d;
+  border-radius: 5px;
+  align-items: center;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+}
+.user-details img {
+  width: 100px;
+  object-fit: cover;
+  height: 100px;
+  border-radius: 51%;
+}
+.user-details h3 {
+  margin: 5px;
+}
+span.home-page-imp-info {
+  color: #090c0a;
+}
+.home-page-main p {
+  text-align: center;
+  text-align: center;
+  background: #a6947d;
+  color: #2e2e2e;
+}
+.user-details button {
+  border: none;
+  background-color: #000000;
+  padding: 10px 12px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 50px;
+}
